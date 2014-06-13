@@ -1,0 +1,33 @@
+﻿@model CmsMaster.Models.User
+
+<div>
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true,"Błąd przy logowaniu.")
+        <br/>
+        
+        @Html.LabelFor(m => m.UserName)
+        <br />
+        @Html.EditorFor(m=>Model.UserName)
+        <br/>
+        @Html.ValidationMessageFor(m=>m.UserName)
+        <br/>
+        
+        @Html.LabelFor(m => m.Password)
+        <br />
+        @Html.PasswordFor(m=>Model.Password)
+        <br/>
+        @Html.ValidationMessageFor(m=>m.Password)
+        
+        <br />
+        @Html.CheckBoxFor(m=>Model.RememberMe)
+        @Html.LabelFor(m => m.RememberMe)
+        <br />
+        
+        <input type="submit" value="Zaloguj"/>
+    }
+
+    
+</div>
