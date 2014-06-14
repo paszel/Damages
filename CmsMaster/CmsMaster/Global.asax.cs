@@ -6,6 +6,9 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using SimpleInjector;
+using CmsMaster.ILogic;
+using CmsMaster.Logic;
 
 namespace CmsMaster
 {
@@ -22,6 +25,15 @@ namespace CmsMaster
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            var container = new Container();
+            container.Register<IAuthenticationLogic, AuthenticationLogic>(Lifestyle.Singleton);
+            
+            //container.InterceptWith<InterceptionProcessor>(t =>
+            //    t.Name.EndsWith("Logic")
+            //);
+
+            Application["Container"] = container;
         }
     }
 }

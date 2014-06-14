@@ -1,4 +1,5 @@
-﻿using CmsMaster.Models;
+﻿using CmsMaster.App_Start;
+using CmsMaster.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,14 @@ namespace CmsMaster.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (user.IsValid(user.UserName, user.Password))
+                if (AppLogic.Authentication.IsAuthenticated(user.UserName, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
                     return RedirectToAction("Index", "Admin");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Dane niepoprawne");
+                    ModelState.AddModelError("CustomValidation", "Dane niepoprawne");
                 }
             }
             return View(user);

@@ -1,11 +1,11 @@
 ﻿@model CmsMaster.Models.User
 
-<div>
+<div style="margin: 0 auto; width:200px; padding-top: 200px;">
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true,"Błąd przy logowaniu.")
+        @Html.ValidationSummary(true)
         <br/>
         
         @Html.LabelFor(m => m.UserName)
@@ -25,6 +25,9 @@
         @Html.CheckBoxFor(m=>Model.RememberMe)
         @Html.LabelFor(m => m.RememberMe)
         <br />
+        
+        @Html.ValidationMessage("CustomValidation")
+        <br/>
         
         <input type="submit" value="Zaloguj"/>
     }
