@@ -22,7 +22,7 @@ namespace CmsMaster.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (AppLogic.Authentication.IsAuthenticated(user.UserName, user.Password))
+                if (AppLogic.UserLogic.IsAuthenticated(user.UserName, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
                     return RedirectToAction("Index", "Admin");

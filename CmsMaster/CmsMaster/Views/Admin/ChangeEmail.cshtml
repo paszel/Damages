@@ -1,0 +1,26 @@
+﻿@model CmsMaster.Models.UserEmail
+
+@using (Html.BeginForm("ChangeEmail", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    @Html.LabelFor(m=>m.Email)
+    <br/>
+    @Html.EditorFor(m=>m.Email)
+    <br/>
+    @Html.ValidationMessageFor(m=>m.Email)
+    <br/>
+    
+    @Html.LabelFor(m=>m.Password)
+    <br/>
+    @Html.PasswordFor(m=>m.Password)
+    <br/>
+    @Html.ValidationMessageFor(m=>m.Password)
+    <br/>
+    
+    <input type="submit" value="Zapisz"/>
+    <br/>
+    <a href="/admin/index">Anuluj</a>
+    
+}

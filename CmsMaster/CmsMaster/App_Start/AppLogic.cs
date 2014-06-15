@@ -9,11 +9,11 @@ namespace CmsMaster.App_Start
 {
     public static class AppLogic
     {
-        public static IAuthenticationLogic Authentication
+        public static IUserLogic UserLogic
         {
             get
             {
-                return ((Container)HttpContext.Current.Application["Container"]).GetInstance<IAuthenticationLogic>();
+                return ((Container)HttpContext.Current.Application["Container"]).GetInstance<IUserLogic>();
             }
         }
     }

@@ -1,27 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using CmsMaster.Helpers;
 
 namespace CmsMaster.Models
 {
-    public class User
+    public class UserEmail
     {
         [Required(ErrorMessage = "Pole wymagane")]
-        [Display(Name = "Login")]
-        public string UserName { get; set; }
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Nie podano prawidłowego adresu email")]
+        [StringLength(50, ErrorMessage = "Maksymalna długość pola '{0}' to {1} znaków")]
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Pole wymagane")]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }
-
-        [Display(Name = "Zapamiętaj")]
-        public bool RememberMe { get; set; }
-
     }
 }

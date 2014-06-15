@@ -27,7 +27,7 @@ namespace CmsMaster
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             var container = new Container();
-            container.Register<IAuthenticationLogic, AuthenticationLogic>(Lifestyle.Singleton);
+            container.Register<IUserLogic, UserLogic>(Lifestyle.Singleton);
             
             //container.InterceptWith<InterceptionProcessor>(t =>
             //    t.Name.EndsWith("Logic")

@@ -1,5 +1,9 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿
+@if (ViewBag.Update != null && ViewBag.Update)
+{
+    <div>
+        <p>Dane zmienione pomyślnie.</p>
+    </div>
 }
 
 <h2>Admin Index</h2>
