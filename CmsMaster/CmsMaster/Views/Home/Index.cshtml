@@ -1,5 +1,14 @@
 ﻿@model CmsMaster.Models.User
 
+@if (ViewBag.Changed != null && ViewBag.Changed)
+{
+    <div>
+        <p>
+            Zresetowano hasło.
+        </p>
+    </div>
+}
+
 <div style="margin: 0 auto; width:200px; padding-top: 200px;">
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -31,6 +40,7 @@
         
         <input type="submit" value="Zaloguj"/>
     }
+    @Html.ActionLink("Przypomnij hasło", "ForgetPassword", "Home")
 
     
 </div>

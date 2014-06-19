@@ -14,7 +14,14 @@ namespace CmsMaster.Controllers
     {
         public ActionResult Index()
         {
-            IUserMailer mailer = new UserMailer();
+            UserMailer mailer = new UserMailer();
+
+            mailer.ToEmail = AppLogic.UserLogic.GetAdminEmail().Email;
+
+            string newPassword = "test123";
+            AppLogic.UserLogic.ChangePassword(newPassword);
+            mailer.Password = newPassword;
+            mailer.Name = "Przemek";
             mailer.Contact().Send();
             return View();
         }

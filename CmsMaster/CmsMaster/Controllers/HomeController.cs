@@ -1,4 +1,5 @@
 ﻿using CmsMaster.App_Start;
+using CmsMaster.Mailers;
 using CmsMaster.Models;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,23 @@ namespace CmsMaster.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult ForgetPassword()
+        {
+            UserMailer mailer = new UserMailer();
+
+            mailer.ToEmail = AppLogic.UserLogic.GetAdminEmail().Email;
+
+            string newPassword = "test123";
+            AppLogic.UserLogic.ChangePassword(newPassword);
+            mailer.Password = newPassword;
+            mailer.Name = "Przemek";
+            mailer.Contact().Send();
+
+            ViewBag.Changed = true;
+
+            return View("Index");
         }
 
     }

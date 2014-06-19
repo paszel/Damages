@@ -1,4 +1,5 @@
 ﻿using CmsMaster.App_Start;
+using CmsMaster.Mailers;
 using CmsMaster.Models;
 using System;
 using System.Collections.Generic;
@@ -40,8 +41,10 @@ namespace CmsMaster.Controllers
             }
 
             user.Password = string.Empty;
-            return View("ChangeEmail",user);
+            return View("ChangeEmail", user);
         }
+
+        
 
         public ActionResult ChangePassword()
         {
