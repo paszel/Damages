@@ -1,0 +1,13 @@
+﻿@if (Request.QueryString.AllKeys.Contains("updated"))
+{
+    <p class="message">
+        <span class="notify">Dane zaktualizowano pomyślnie.</span>
+    </p>
+}
+
+@if (Request.QueryString.AllKeys.Contains("added"))
+{
+    <p class="message">
+        <span class="notify">Dane dodano pomyślnie.</span>
+    </p>
+}

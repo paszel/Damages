@@ -145,14 +145,27 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.Cooperators.cs" />
+    <Compile Include="Controllers\AdminController.Partners.cs" />
+    <Compile Include="Controllers\AdminController.News.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DataTables\DataTableResult.cs" />
+    <Compile Include="Helpers\DataTables\DataTableSerializationData.cs" />
+    <Compile Include="Helpers\DataTables\IDataTableResult.cs" />
+    <Compile Include="Helpers\DataTables\Params.cs" />
+    <Compile Include="Helpers\Paging\ListPage.cs" />
+    <Compile Include="Helpers\Paging\PagingArgs.cs" />
     <Compile Include="Helpers\PasswordHashHelper.cs" />
+    <Compile Include="ILogic\ICooperatorLogic.cs" />
+    <Compile Include="ILogic\IPartnerLogic.cs" />
     <Compile Include="ILogic\IUserLogic.cs" />
+    <Compile Include="Logic\NewsLogic.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Mailers\IUserMailer.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
@@ -174,6 +187,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\News.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserEmail.cs" />
     <Compile Include="Models\UserPassword.cs" />
@@ -184,6 +201,8 @@
     <Content Include="App_Data\CmsDatabase_log.ldf">
       <DependentUpon>CmsDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\images\Admin\cms-icon.png" />
+    <Content Include="Content\themes\Admin\admin.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -265,6 +284,7 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
+    <Compile Include="ILogic\INewsLogic.cs" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
@@ -303,7 +323,9 @@
     <Content Include="Views\Admin\ChangePassword.cshtml" />
     <Content Include="Views\UserMailer\_Layout.cshtml" />
     <Content Include="Views\UserMailer\Contact.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shared\PartialViews\Admin\Messages.cshtml" />
+    <Content Include="Views\Shared\PartialViews\Admin\NavigationBar.cshtml" />
+    <Content Include="Views\Shared\PartialViews\Admin\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -311,6 +333,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

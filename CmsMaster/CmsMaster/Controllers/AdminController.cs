@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace CmsMaster.Controllers
 {
     [Authorize]
-    public class AdminController : Controller
+    public partial class AdminController : Controller
     {
         public ActionResult Index()
         {
