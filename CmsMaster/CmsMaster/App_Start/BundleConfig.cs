@@ -23,9 +23,11 @@ namespace CmsMaster
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/Admin/js").Include(
+                "~/Scripts/DataTables-1.9.4/media/js/jquery.dataTables.js",
+                 "~/Scripts/tinymce.3.4.5/tiny_mce.js"));
 
-            bundles.Add(new StyleBundle("~/Content/Admin/css").Include("~/Content/themes/Admin/admin.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -40,6 +42,11 @@ namespace CmsMaster
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/Content/Admin/css").Include(
+                        "~/Content/themes/Admin/admin.css",
+                        "~/Content/DataTables-1.9.4/media/css/jquery.dataTables.css",
+                        "~/~/Scripts/tinymce.3.4.5/css/content.css"));
         }
     }
 }

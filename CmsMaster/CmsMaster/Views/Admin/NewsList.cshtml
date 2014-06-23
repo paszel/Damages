@@ -1,0 +1,69 @@
+﻿@section BreadCrumbs{
+    > Lista aktualności
+
+}
+
+<div>
+    <div style="margin: 1em">
+        @Html.ActionLink("Dodaj nowe", "AddNews", "Admin")
+    </div>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <td>Tytuł</td>
+                <td>Data utworzenia</td>
+                <td>&nbsp;</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot></tfoot>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var oTable = $("#dataTable").dataTable(
+               {
+                   "bProcessing": true,
+                   "bServerSide": true, // --> jesli chcemy obsluge wszelkich eventow nawet sort po stronie servera
+                   "bFilter": false,
+                   "sAjaxSource": "/Admin/GetNewsList",
+                   "fnServerData": function (url, data, callback) {
+                       $.ajax({
+                           "url": url,
+                           "data": data,
+                           "success": callback,
+                           "contentType": "application/x-www-form-urlencoded; charset=uft-8",
+                           "dataType": "json",
+                           "type": "POST",
+                           "cache": false,
+                           "error": function () {
+                               alert("Error: dane nie mogły zostać pobrane!");
+                           }
+                       });
+                   },
+                   "iStart": $(this)._iDisplayStart,
+                   "aoColumns": [
+                       { "bSortable": false, "sWidth": '40%' },
+                       { "bSortable": false, "sWidth": '40%' },
+                       { "bSortable": false, "sWidth": '10%' }
+
+                   ],
+                   "oLanguage": {
+                       "sProcessing": "Przetwarznie danych...",
+                       "sLengthMenu": "_MENU_ rekordów na stronę",
+                       "sZeroRecords": "Nie znaleziono żadnych rekordów.",
+                       "sInfo": "Wyświetlono od _START_ do _END_ z _TOTAL_ rekordów",
+                       "sInfoEmpty": "Wyświetlono 0 do 0 z 0 rekordów",
+                       "sInfoFiltered": "(przefiltrowano z _MAX_ wszystkich rekordów)",
+                       "sSearch": "Szukaj:",
+                       "oPaginate": {
+                           "sFirst": "Pierwsza",
+                           "sPrevious": "Poprzednia",
+                           "sNext": "Następna",
+                           "sLast": "Ostatnia"
+                       }
+                   }
+               })
+    })
+</script>

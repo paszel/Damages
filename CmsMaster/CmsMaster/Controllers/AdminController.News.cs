@@ -30,7 +30,7 @@ namespace CmsMaster.Controllers
             var data = AppLogic.NewsLogic.GetNews(pagingArgs);
             var table = new List<List<string>>();
 
-            var actionLink = "<a href =\"/admin/editNews?id={0}\">edytuj</a>";
+            var actionLink = "<a href =\"/admin/editNews?id={0}\">edytuj</a> | <a href =\"/admin/deleteNews?id={0}\">edytuj</a>";
 
             foreach (var item in data.Items)
             {
@@ -77,6 +77,12 @@ namespace CmsMaster.Controllers
                 return View("NewsList", new { updated = true });
             }
             return View(model);
+        }
+
+        public ActionResult DeleteNews(int id)
+        {
+            AppLogic.NewsLogic.DeleteNews(id);
+            return RedirectToAction("NewsList", new { updated = true });
         }
 
     }
