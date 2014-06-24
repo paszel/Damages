@@ -28,7 +28,8 @@ namespace CmsMaster
 
             var container = new Container();
             container.Register<IUserLogic, UserLogic>(Lifestyle.Singleton);
-            
+            container.Register<INewsLogic, NewsLogic>(Lifestyle.Singleton);
+
             //container.InterceptWith<InterceptionProcessor>(t =>
             //    t.Name.EndsWith("Logic")
             //);

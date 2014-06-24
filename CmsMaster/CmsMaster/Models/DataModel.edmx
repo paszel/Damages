@@ -14,30 +14,18 @@
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\JEZUS\DOCUMENTS\GITHUB\DAMAGES\CMSMASTER\CMSMASTER\APP_DATA\CMSDATABASE.MDF.dbo.News' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="News">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="Created" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Created" Type="smalldatetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CmsDatabaseModelStoreContainer">
           <EntitySet Name="Authentication" EntityType="Self.Authentication" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="News" EntityType="Self.News" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [News].[Id] AS [Id], 
-    [News].[Title] AS [Title], 
-    [News].[Content] AS [Content], 
-    [News].[Created] AS [Created]
-    FROM [dbo].[News] AS [News]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -59,16 +47,13 @@ warning 6002: The table/view 'C:\USERS\JEZUS\DOCUMENTS\GITHUB\DAMAGES\CMSMASTER\
         <EntityType Name="News">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="Content" />
-            <PropertyRef Name="Created" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

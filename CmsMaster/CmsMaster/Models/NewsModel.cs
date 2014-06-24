@@ -16,7 +16,7 @@ namespace CmsMaster.Models
         public string Title { get; set; }
         
         [Required(ErrorMessage="Pole wymagane")]
-        [UIHint("tinymce_jquery_full"), AllowHtml]
+        [UIHint("tinymce_full_compressed"), AllowHtml]
         public string Content { get; set; }
     }
 }

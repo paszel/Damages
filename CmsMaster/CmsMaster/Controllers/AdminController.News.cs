@@ -30,7 +30,7 @@ namespace CmsMaster.Controllers
             var data = AppLogic.NewsLogic.GetNews(pagingArgs);
             var table = new List<List<string>>();
 
-            var actionLink = "<a href =\"/admin/editNews?id={0}\">edytuj</a> | <a href =\"/admin/deleteNews?id={0}\">edytuj</a>";
+            var actionLink = "<a href =\"/admin/editNews?id={0}\">edytuj</a> | <a href =\"/admin/deleteNews?id={0}\">usuń</a>";
 
             foreach (var item in data.Items)
             {

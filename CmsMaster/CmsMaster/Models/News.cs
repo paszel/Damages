@@ -11,14 +11,11 @@ namespace CmsMaster.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web.Mvc;
     
     public partial class News
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        [UIHint("tinymce_jquery_full"), AllowHtml]
         public string Content { get; set; }
         public System.DateTime Created { get; set; }
     }

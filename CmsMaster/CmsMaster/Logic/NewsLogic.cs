@@ -14,13 +14,13 @@ namespace CmsMaster.Logic
         {
             using(var db = new CmsDatabaseEntities())
             {
-                var news = db.News;
+                var news = db.News.ToList();
 
-                pagingArgs.TotalRecords = news.Count();
+                pagingArgs.TotalRecords = news.Count;
 
                 return new ListPage<News, PagingArgs>()
                 {
-                    Items = news.Skip((pagingArgs.PageNo - 1) * pagingArgs.PageSize).Take(pagingArgs.PageSize).ToList(),
+                    Items = news.Skip((pagingArgs.PageNo - 1) * pagingArgs.PageSize).Take(pagingArgs.PageSize),
                     PagingArgs = pagingArgs
                 };
             }
