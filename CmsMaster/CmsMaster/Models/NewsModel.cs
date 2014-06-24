@@ -11,10 +11,12 @@ namespace CmsMaster.Models
     {
         public int Id { get; set; }
 
+        [Display(Name="Tytuł")]
         [Required(ErrorMessage="Pole wymagane")]
         [StringLength(100,ErrorMessage="Maksymalna długość pola to 100 znaków")]
         public string Title { get; set; }
         
+        [Display(Name="Zawartość")]
         [Required(ErrorMessage="Pole wymagane")]
         [UIHint("tinymce_full_compressed"), AllowHtml]
         public string Content { get; set; }

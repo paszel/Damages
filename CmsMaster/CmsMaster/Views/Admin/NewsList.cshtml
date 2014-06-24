@@ -22,6 +22,14 @@
 
 <script type="text/javascript">
     $(function () {
+
+        $('div').on('click', '.deleteAction', function (e) {
+            e.stopPropagation();
+            if (!confirm("Czy jesteś pewien, że chcesz usunąć wybrany rekord?\r\nOperacji nie można cofnąć.")) {
+                e.preventDefault();
+            }
+        });
+
         var oTable = $("#dataTable").dataTable(
                {
                    "bProcessing": true,

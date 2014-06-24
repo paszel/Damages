@@ -14,17 +14,33 @@
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Cooperator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Created" Type="smalldatetime" Nullable="false" />
+          <Property Name="IsBanner" Type="bit" Nullable="false" />
+          <Property Name="UrlAddress" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="News">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="smalldatetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CmsDatabaseModelStoreContainer">
           <EntitySet Name="Authentication" EntityType="Self.Authentication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cooperator" EntityType="Self.Cooperator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -34,6 +50,7 @@
         <EntityContainer Name="CmsDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Authentications" EntityType="CmsDatabaseModel.Authentication" />
           <EntitySet Name="News" EntityType="CmsDatabaseModel.News" />
+          <EntitySet Name="Cooperators" EntityType="CmsDatabaseModel.Cooperator" />
         </EntityContainer>
         <EntityType Name="Authentication">
           <Key>
@@ -52,6 +69,21 @@
           <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Cooperator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsBanner" Type="Boolean" Nullable="false" />
+          <Property Name="UrlAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -74,6 +106,22 @@
               <MappingFragment StoreEntitySet="News">
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cooperators">
+            <EntityTypeMapping TypeName="CmsDatabaseModel.Cooperator">
+              <MappingFragment StoreEntitySet="Cooperator">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="UrlAddress" ColumnName="UrlAddress" />
+                <ScalarProperty Name="IsBanner" ColumnName="IsBanner" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

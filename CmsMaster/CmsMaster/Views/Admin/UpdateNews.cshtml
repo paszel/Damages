@@ -1,0 +1,32 @@
+﻿@model CmsMaster.Models.NewsModel
+
+@section BreadCrumbs{
+    > @Html.ActionLink("Lista aktualności", "NewsList", "Admin") > Edycja
+}
+
+@using (Html.BeginForm("UpdateNews", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    @Html.HiddenFor(m=>Model.Id)
+    
+    @Html.LabelFor(m=>m.Title)
+    <br/>
+    @Html.EditorFor(m=>Model.Title)
+    <br/>
+    @Html.ValidationMessageFor(m=>m.Title)
+    <br/>
+    
+    @Html.LabelFor(m=>m.Content)
+    <br/>
+    @Html.EditorFor(m=>Model.Content)
+    <br/>
+    @Html.ValidationMessageFor(m=>m.Content)
+    <br/>
+    
+    <p>
+        <input type="submit" value="Zapisz" />
+    </p>
+    
+}

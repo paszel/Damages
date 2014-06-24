@@ -30,13 +30,13 @@ namespace CmsMaster.Controllers
             var data = AppLogic.NewsLogic.GetNews(pagingArgs);
             var table = new List<List<string>>();
 
-            var actionLink = "<a href =\"/admin/editNews?id={0}\">edytuj</a> | <a href =\"/admin/deleteNews?id={0}\">usuń</a>";
+            var actionLink = "<a href =\"/admin/updateNews?id={0}\">edytuj</a> | <a href =\"/admin/deleteNews?id={0}\" class=\"deleteAction\">usuń</a>";
 
             foreach (var item in data.Items)
             {
                 table.Add(new List<string>(){
                     item.Title,
-                    item.Created.ToString("dd-MM-yyyy"),
+                    item.Created.ToString("dd-MM-yyyy hh:MM"),
                     string.Format(actionLink,item.Id)
                 });
 
@@ -57,7 +57,7 @@ namespace CmsMaster.Controllers
             if(ModelState.IsValid)
             {
                 AppLogic.NewsLogic.AddNews(model);
-                return View("NewsList", new { added = true });
+                return RedirectToAction("NewsList", new { added = true });
             }
             return View(model);
         }
@@ -74,7 +74,7 @@ namespace CmsMaster.Controllers
             if (ModelState.IsValid)
             {
                 AppLogic.NewsLogic.UpdateNews(model);
-                return View("NewsList", new { updated = true });
+                return RedirectToAction("NewsList", new { updated = true });
             }
             return View(model);
         }

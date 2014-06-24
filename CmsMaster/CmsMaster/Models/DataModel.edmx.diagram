@@ -7,6 +7,7 @@
       <Diagram DiagramId="5cfd9689909d40af962f17a599dd5813" Name="Diagram1">
         <EntityTypeShape EntityType="CmsDatabaseModel.Authentication" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="CmsDatabaseModel.News" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CmsDatabaseModel.Cooperator" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
