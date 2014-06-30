@@ -1,0 +1,51 @@
+﻿@model CmsMaster.Models.User
+
+@if (ViewBag.Changed != null && ViewBag.Changed)
+{
+    <div>
+        <p>
+            Zresetowano hasło.
+        </p>
+    </div>
+}
+
+@section BreadCrumbs
+{
+    > logowanie
+}
+
+<div style="margin: 0 auto; width:200px; padding-top: 100px;">
+
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <br/>
+        
+        @Html.LabelFor(m => m.UserName)
+        <br />
+        @Html.EditorFor(m=>Model.UserName)
+        <br/>
+        @Html.ValidationMessageFor(m=>m.UserName)
+        <br/>
+        
+        @Html.LabelFor(m => m.Password)
+        <br />
+        @Html.PasswordFor(m=>Model.Password)
+        <br/>
+        @Html.ValidationMessageFor(m=>m.Password)
+        
+        <br />
+        @Html.CheckBoxFor(m=>Model.RememberMe)
+        @Html.LabelFor(m => m.RememberMe)
+        <br />
+        
+        @Html.ValidationMessage("CustomValidation")
+        <br/>
+        
+        <input type="submit" value="Zaloguj"/>
+    }
+    @Html.ActionLink("Przypomnij hasło", "ForgetPassword", "Home")
+
+    
+</div>

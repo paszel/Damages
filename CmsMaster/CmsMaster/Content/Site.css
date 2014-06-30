@@ -1,4 +1,95 @@
 ﻿body {
+    background-image: url(images/Public/background.png);
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+div.logo {
+    margin-top: 50px;
+    background-image: url(images/Public/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 30px;
+}
+
+div.bar {
+    background-image: url(images/Public/menubar.png);
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 36px;
+    margin-left: 0px;
+    margin-top: 40px;
+    margin-right: 0px;
+    font-family: georgia;
+    font-size: 30px;
+    padding: 30px;
+    color: #fff;
+}
+
+    div.bar a {
+        color: #ddd;
+        text-decoration: none;
+    }
+
+div.content {
+    background-image: url(images/Public/bgcontent.png);
+    width: 60%;
+    height: 100%;
+    margin-left: 20%;
+    margin-top: 0px;
+    margin-right: 20%;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    min-height: 1000px;
+    font-family: georgia;
+    font-size: 18px;
+    padding: 30px;
+    color: #000;
+    border: solid 1px #ddd;
+}
+
+div.footer {
+    background-image: url(images/Public/footer.png);
+    width: 100%;
+    height: 100px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    font-family: georgia;
+    bottom: 50px;
+    position:relative;
+    font-size: 20px;
+    padding: 30px;
+    color: #fff;
+}
+
+div.footer div{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+    div.footer a {
+        color: #ddd;
+        text-decoration: none;
+        font-style: italic;
+    }
+
+div.newsContent {
+    margin: 0 auto;
+    border-bottom: 1px solid #000;
+}
+
+div#paging{
+    display: inline;
+}
+
+span.labelSpan{
+    min-width: 100px;
+    font-weight: 900;
+}
+
+/*body {
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
@@ -9,9 +100,6 @@ header, footer, nav, section {
     display: block;
 }
 
-
-/* Styles for basic forms
------------------------------------------------------------*/
 fieldset {
     border: 1px solid #ddd;
     padding: 0 1.4em 1.4em 1.4em;
@@ -36,8 +124,6 @@ textarea {
 }
 
 
-/* Styles for validation helpers
------------------------------------------------------------*/
 .field-validation-error {
     color: #f00;
 }
@@ -58,4 +144,4 @@ textarea {
 
 .validation-summary-valid {
     display: none;
-}
+}*/

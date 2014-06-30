@@ -1,0 +1,19 @@
+﻿@model CmsMaster.Models.News
+
+@section BreadCrumbs{
+    > Szczegóły
+}
+
+<div>
+    <p>
+        @Model.Created.ToString("dd-MM-yyyy")
+    </p>
+    <p>
+        @Model.Title
+    </p>
+    <p>
+        @Html.Raw(Model.Content)
+    </p>
+</div>
+
+@Html.ActionLink("Powrót", "Index", "Home")

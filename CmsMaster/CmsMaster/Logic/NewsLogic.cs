@@ -83,5 +83,14 @@ namespace CmsMaster.Logic
                 };
             }
         }
+
+
+        public News GetPublicNews(int id)
+        {
+            using (var db = new CmsDatabaseEntities())
+            {
+                return db.News.FirstOrDefault(n => n.Id == id);
+            }
+        }
     }
 }

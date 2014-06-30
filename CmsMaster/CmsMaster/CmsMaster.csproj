@@ -305,6 +305,12 @@
     <Content Include="Content\DataTables-1.9.4\media\images\sort_desc.png" />
     <Content Include="Content\DataTables-1.9.4\media\images\sort_desc_disabled.png" />
     <Content Include="Content\images\Admin\cms-icon.png" />
+    <Content Include="Content\images\Public\background.png" />
+    <Content Include="Content\images\Public\bgcontent.png" />
+    <Content Include="Content\images\Public\footer.png" />
+    <Content Include="Content\images\Public\footer0.2.png" />
+    <Content Include="Content\images\Public\logo.png" />
+    <Content Include="Content\images\Public\menubar.png" />
     <Content Include="Content\themes\Admin\admin.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -721,7 +727,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Layouts\Admin\Default.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Shared\Layouts\Home\Default.cshtml" />
     <Content Include="Views\Admin\_ViewStart.cshtml" />
@@ -737,6 +743,9 @@
     <Content Include="Views\Shared\EditorTemplates\tinymce_full_compressed.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\tinymce_full.cshtml" />
     <Content Include="Views\Admin\UpdateNews.cshtml" />
+    <Content Include="Views\Shared\PartialViews\Public\MenuBar.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\NewsDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

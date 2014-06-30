@@ -12,32 +12,27 @@
     @Scripts.Render("~/bundles/Admin/js")
 </head>
 <body>
-
     <div class="navBar">
-        <div style="float:right">
-            @Html.Partial("PartialViews/Admin/NavigationBar")
+        <div id="titleDiv">
+            <h1>PRZEMYSŁAWPIECHOTA.PL</h1>
         </div>
-        <div>
-            <p>
-                <h1>PRZEMYSŁAWPIECHOTA.PL</h1>
-            </p>
+        <div id="adminActions">
+            @Html.Partial("PartialViews/Admin/NavigationBar")
         </div>
     </div>
     <br/>
-    <div>
+    <div id="content">
         <div class="menu">
             @Html.Partial("PartialViews/Admin/Menu")
         </div>
         <div class="content">
-            <a href="/admin">strona główna</a> @RenderSection("BreadCrumbs", false)
-            <br />
+            <div id="breadCrumbs">
+                <a href="/admin">strona główna</a> @RenderSection("BreadCrumbs", false)
+            </div>
             @Html.Partial("PartialViews/Admin/Messages")
-            <br/>
             @RenderBody()
         </div>
     </div>
-
     @RenderSection("scripts", required: false)
-
 </body>
 </html>
