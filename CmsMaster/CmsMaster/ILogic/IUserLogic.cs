@@ -14,5 +14,8 @@ namespace CmsMaster.ILogic
         void ChangePassword(string password);
         UserEmail GetAdminEmail();
         UserPassword GetAdminPassword();
+        string GetAdminAvatarPath();
+        void SaveAvatarPath(string path);
+
     }
 }

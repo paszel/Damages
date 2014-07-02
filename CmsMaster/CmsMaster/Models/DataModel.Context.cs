@@ -28,5 +28,6 @@ namespace CmsMaster.Models
         public virtual DbSet<Authentication> Authentications { get; set; }
         public virtual DbSet<News> News { get; set; }
         public virtual DbSet<Cooperator> Cooperators { get; set; }
+        public virtual DbSet<Content> Contents { get; set; }
     }
 }

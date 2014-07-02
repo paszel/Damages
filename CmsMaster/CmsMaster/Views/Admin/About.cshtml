@@ -1,0 +1,18 @@
+﻿@model CmsMaster.Models.AboutModel
+
+<img src="@Url.Action("GetAvatar", "Admin", new { path = Model.Avatar})" width="90" alt="avatar" style="float:left" />
+
+@using (Html.BeginForm("About", "Admin", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    
+    @Html.LabelFor(m => m.Content)
+    <br/>
+    @Html.EditorFor(m => Model.Content)
+    <br/>
+    @Html.ValidationMessageFor(m => m.Content)
+    <div>
+        <input type="submit" value="Zapisz"/> &nbsp; @Html.ActionLink("Anuluj", "Index", "Admin")
+    </div>
+}

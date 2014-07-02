@@ -38,5 +38,13 @@ namespace CmsMaster.App_Start
             }
         }
 
+        public static IContentLogic ContentLogic
+        {
+            get
+            {
+                return ((Container)HttpContext.Current.Application["Container"]).GetInstance<IContentLogic>();
+            }
+        }
+
     }
 }

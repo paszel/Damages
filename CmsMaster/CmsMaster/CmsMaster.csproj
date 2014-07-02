@@ -163,11 +163,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.About.cs" />
     <Compile Include="Controllers\AdminController.News.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controllers\AdminController.Partners.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminControllerContact.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -176,22 +178,31 @@
     <Compile Include="Helpers\DataTables\DataTableSerializationData.cs" />
     <Compile Include="Helpers\DataTables\IDataTableResult.cs" />
     <Compile Include="Helpers\DataTables\Params.cs" />
+    <Compile Include="Helpers\DirectoryHelper.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Helpers\Paging\ListPage.cs" />
     <Compile Include="Helpers\Paging\PagingArgs.cs" />
     <Compile Include="Helpers\PasswordHashHelper.cs" />
+    <Compile Include="ILogic\IContentLogic.cs" />
     <Compile Include="ILogic\ICooperatorLogic.cs" />
     <Compile Include="ILogic\INewsLogic.cs" />
     <Compile Include="ILogic\IPartnerLogic.cs" />
     <Compile Include="ILogic\IUserLogic.cs" />
+    <Compile Include="Logic\ContentLogic.cs" />
     <Compile Include="Logic\NewsLogic.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Mailers\IUserMailer.cs" />
     <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Models\AboutModel.cs" />
     <Compile Include="Models\Authentication.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Content.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContentModel.cs" />
     <Compile Include="Models\Cooperator.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -211,6 +222,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\News.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -754,6 +766,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AppData\Avatar\" />
     <Folder Include="AppData\Cooperators\" />
     <Folder Include="AppData\Partners\" />
   </ItemGroup>

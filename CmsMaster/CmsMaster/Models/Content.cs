@@ -12,11 +12,10 @@ namespace CmsMaster.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class News
+    public partial class Content
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public System.DateTime Created { get; set; }
+        public string ContentDescription { get; set; }
+        public byte ContentType { get; set; }
     }
 }

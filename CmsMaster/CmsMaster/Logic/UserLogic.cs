@@ -65,5 +65,22 @@ namespace CmsMaster.Logic
             var password = PasswordHashHelper.Decode(admin.Password);
             return new UserPassword() { OldPassword = password };
         }
+
+        public string GetAdminAvatarPath()
+        {
+            return GetAdmin().Avatar;
+        }
+
+
+        public void SaveAvatarPath(string path)
+        {
+            using (var db = new CmsDatabaseEntities())
+            {
+                var user = db.Authentications.First(u => u.Username == "admin");
+                user.Avatar = path;
+
+                db.SaveChanges();
+            }
+        }
     }
 }

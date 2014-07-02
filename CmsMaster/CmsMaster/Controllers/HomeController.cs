@@ -37,6 +37,11 @@ namespace CmsMaster.Controllers
 
         public ActionResult Login()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+
             return View();
         }
 
