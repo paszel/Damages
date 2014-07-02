@@ -1,0 +1,16 @@
+﻿@model CmsMaster.Models.ContentModel
+
+@using (Html.BeginForm("Partnership", "Admin", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
+    
+    @Html.LabelFor(m => m.ContentDescription)
+    <br/>
+    @Html.EditorFor(m => Model.ContentDescription)
+    <br/>
+    @Html.ValidationMessageFor(m => m.ContentDescription)
+    <div>
+        <input type="submit" value="Zapisz"/> &nbsp; @Html.ActionLink("Anuluj", "Index", "Admin")
+    </div>
+}

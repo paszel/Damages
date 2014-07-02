@@ -25,7 +25,7 @@ namespace CmsMaster.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult About(
             HttpPostedFileBase avatar,
             AboutModel model)
@@ -57,9 +57,9 @@ namespace CmsMaster.Controllers
                 DirectoryHelper.CreateDirectoryNested(resourceDir);
 
                 var fileExtension = image.FileName.Split('.')[1];
-                var fileName = string.Format("adminAvatar.{1}", fileExtension);
+                var fileName = string.Format("adminAvatar.{0}", fileExtension.ToLower());
 
-                var path = string.Format("/AppData/Avatars/{0}", fileName);
+                var path = string.Format("/AppData/Avatar/{0}", fileName);
 
                 var imgWidth = 960;
                 var imgQuality = 95L;

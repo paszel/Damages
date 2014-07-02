@@ -13,17 +13,17 @@ namespace CmsMaster.Controllers
 {
     public partial class AdminController : Controller
     {
-        public ActionResult Contact()
+        public ActionResult Partnership()
         {
-            return View(AppLogic.ContentLogic.GetContent(ContentType.Contact));
+            return View(AppLogic.ContentLogic.GetContent(ContentType.Partnership));
         }
 
         [HttpPost]
-        public ActionResult Contact(ContentModel model)
+        public ActionResult Partnership(ContentModel model)
         {
             if (ModelState.IsValid)
             {
-                model.Type = ContentType.Contact;
+                model.Type = ContentType.Partnership;
                 AppLogic.ContentLogic.EditContent(model);
 
                 return RedirectToAction("Index", new { updated = true });

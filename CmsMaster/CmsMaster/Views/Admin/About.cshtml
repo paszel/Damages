@@ -1,18 +1,73 @@
 ﻿@model CmsMaster.Models.AboutModel
 
-<img src="@Url.Action("GetAvatar", "Admin", new { path = Model.Avatar})" width="90" alt="avatar" style="float:left" />
-
-@using (Html.BeginForm("About", "Admin", FormMethod.Post))
+@using (Html.BeginForm("About", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
-    @Html.AntiForgeryToken()
-    
+
+    @Html.LabelFor(m => m.Avatar)
+    <br />
+
+    if (string.IsNullOrEmpty(Model.Avatar))
+    {
+        <span>Nie wgrano jeszcze żadnego.</span>
+    }
+    else
+    {
+        <img src="@Url.Action("GetAvatar", "Admin", new { id="FormContainer", path = Model.Avatar })" alt="avatar" />
+    }
+
+    <br />
+
+    <input id="avatar" name="avatar" type="file" />
+    <br/>
+    <span class="vtip" title="Dopuszczalne typy plików: JPG, PNG."><a class="forUiHintIco"></a></span>
+
+    <br />
     @Html.LabelFor(m => m.Content)
-    <br/>
+    <br />
     @Html.EditorFor(m => Model.Content)
-    <br/>
+    <br />
     @Html.ValidationMessageFor(m => m.Content)
     <div>
-        <input type="submit" value="Zapisz"/> &nbsp; @Html.ActionLink("Anuluj", "Index", "Admin")
+        <input id="formSubmit" type="submit" value="Zapisz" /> &nbsp; @Html.ActionLink("Anuluj", "Index", "Admin")
     </div>
+}
+
+@section Scripts{
+
+    <script type="text/javascript">
+        $("#fileRequired").hide();
+
+        $("#formSubmit").click(function () {
+            var submit = true;
+
+            submit = TestFileType($("#avatar").val(), ".jpg .png");
+
+            if (submit) {
+                $("#FormContainer").submit();
+            }
+            else {
+                return false;
+            }
+
+        });
+
+
+        function TestFileType(fileName, fileTypes) {
+            if (!fileName) return false;
+
+            dots = fileName.split(".")
+            //get the part AFTER the LAST period.
+            fileType = "." + dots[dots.length - 1];
+
+            var result = (fileTypes.indexOf(fileType.toLowerCase()) != -1);
+
+            if (!result) {
+                alert("Niepoprawny format pliku. Plik powinnien być w formacie: \n\n" + fileTypes + "\n\nWybierz inny plik.");
+            }
+            return result;
+
+
+        }
+    </script>
 }
