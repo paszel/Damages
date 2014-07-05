@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Controllers\AdminController.Partners.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.Authentication.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -762,6 +763,9 @@
     <Content Include="Views\Admin\Contact.cshtml" />
     <Content Include="Views\Admin\About.cshtml" />
     <Content Include="Views\Admin\Partnership.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Partnership.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

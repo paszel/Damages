@@ -1,5 +1,9 @@
 ﻿@model CmsMaster.Models.UserEmail
 
+@section Breadcrumbs{
+    > zmiana maila
+}
+
 @using (Html.BeginForm("ChangeEmail", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()

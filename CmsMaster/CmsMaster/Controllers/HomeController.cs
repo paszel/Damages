@@ -11,7 +11,7 @@ using System.Web.Security;
 
 namespace CmsMaster.Controllers
 {
-    public class HomeController : Controller
+    public partial class HomeController : Controller
     {
         public ActionResult Index(int pageNo = 0)
         {
@@ -34,58 +34,23 @@ namespace CmsMaster.Controllers
             
             return View(news);
         }
-
-        public ActionResult Login()
+        public ActionResult GetAvatar(string path)
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Admin");
-            }
-
-            return View();
+            return File(System.Web.HttpContext.Current.Server.MapPath(path), "image/jpeg");
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(User user)
+        public ActionResult About()
         {
-            if (ModelState.IsValid)
-            {
-                if (AppLogic.UserLogic.IsAuthenticated(user.UserName, user.Password))
-                {
-                    FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
-                    return RedirectToAction("Index", "Admin");
-                }
-                else
-                {
-                    ModelState.AddModelError("CustomValidation", "Dane niepoprawne");
-                }
-            }
-            return View(user);
+            ViewBag.Avatar = AppLogic.UserLogic.GetAdminAvatarPath();
+            return View(AppLogic.ContentLogic.GetContent(ContentType.About));
         }
-
-        public ActionResult Logout()
+        public ActionResult Contact()
         {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return View(AppLogic.ContentLogic.GetContent(ContentType.Contact));
         }
-
-        public ActionResult ForgetPassword()
+        public ActionResult Partnership()
         {
-            UserMailer mailer = new UserMailer();
-
-            mailer.ToEmail = AppLogic.UserLogic.GetAdminEmail().Email;
-
-            string newPassword = "test123";
-            AppLogic.UserLogic.ChangePassword(newPassword);
-            mailer.Password = newPassword;
-            mailer.Name = "Przemek";
-            mailer.Contact().Send();
-
-            ViewBag.Changed = true;
-
-            return View("Index");
+            return View(AppLogic.ContentLogic.GetContent(ContentType.Partnership));
         }
-
     }
 }

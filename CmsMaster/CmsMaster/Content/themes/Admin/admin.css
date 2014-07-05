@@ -18,6 +18,8 @@ div.navBar{
     height:50px; 
     background-color: #BAAEA1;
     padding: 10px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 div.navBar div#titleDiv{
@@ -44,6 +46,8 @@ div.menu {
     padding: 0.5em 1em;
     margin-top: -20px;
     min-height: 400px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 div.menu p{

@@ -1,5 +1,9 @@
 ﻿@model CmsMaster.Models.ContentModel
 
+@section Breadcrumbs{
+    > współpraca
+}
+
 @using (Html.BeginForm("Partnership", "Admin", FormMethod.Post))
 {
     @Html.ValidationSummary(true)

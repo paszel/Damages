@@ -1,0 +1,29 @@
+﻿@model CmsMaster.Models.ContentModel
+
+@{
+    var avatar = ViewBag.Avatar;
+}
+
+@section Breadcrumbs{
+    > o mnie
+}
+<div>
+    <div class="imgContent">
+        <img class="unactive" src="@Url.Action("GetAvatar", "Home", new { path = avatar })" alt="avatar" width="270" />
+    </div>
+    <div class="aboutContent">
+        @Html.Raw(Model.ContentDescription)
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.imgContent')
+        .mouseenter(function () {
+            $(this).find('img').removeClass('unactive');
+        })
+        .mouseleave(function () {
+          $(this).find('img').addClass('unactive');
+      });
+    })
+</script>

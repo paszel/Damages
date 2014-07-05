@@ -1,5 +1,9 @@
 ﻿@model CmsMaster.Models.ContentModel
 
+@section Breadcrumbs{
+    > kontakt
+}
+
 @using (Html.BeginForm("Contact", "Admin", FormMethod.Post))
 {
     @Html.ValidationSummary(true)

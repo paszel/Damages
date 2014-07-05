@@ -1,5 +1,9 @@
 ﻿@model CmsMaster.Models.AboutModel
 
+@section Breadcrumbs{
+    > o mnie
+}
+
 @using (Html.BeginForm("About", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
