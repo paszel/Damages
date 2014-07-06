@@ -11,12 +11,16 @@ namespace CmsMaster.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class News
     {
         public int Id { get; set; }
+        [Display(Name="Tytu³")]
         public string Title { get; set; }
+        [Display(Name = "Zawartoœæ")]
         public string Content { get; set; }
+        [Display(Name = "Utworzono")]
         public System.DateTime Created { get; set; }
     }
 }

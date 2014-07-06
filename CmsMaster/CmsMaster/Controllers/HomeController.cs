@@ -15,7 +15,7 @@ namespace CmsMaster.Controllers
     {
         public ActionResult Index(int pageNo = 0)
         {
-            var news = AppLogic.NewsLogic.GetNews(new PagingArgs() { PageSize = 10, PageNo = pageNo });
+            var news = AppLogic.NewsLogic.GetNews(new PagingArgs() { PageSize = 5, PageNo = pageNo });
 
             ViewBag.TotalCount = news.PagingArgs.TotalRecords;
             ViewBag.PageSize = news.PagingArgs.PageSize;

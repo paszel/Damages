@@ -318,13 +318,30 @@
     <Content Include="Content\DataTables-1.9.4\media\images\sort_both.png" />
     <Content Include="Content\DataTables-1.9.4\media\images\sort_desc.png" />
     <Content Include="Content\DataTables-1.9.4\media\images\sort_desc_disabled.png" />
+    <Content Include="Content\images\Admin\bg-page.png" />
+    <Content Include="Content\images\Admin\bg.png" />
     <Content Include="Content\images\Admin\cms-icon.png" />
+    <Content Include="Content\images\Admin\ico-about-black.png" />
+    <Content Include="Content\images\Admin\ico-add.png" />
+    <Content Include="Content\images\Admin\ico-cms.png" />
+    <Content Include="Content\images\Admin\ico-contact-black.png" />
+    <Content Include="Content\images\Admin\ico-home.png" />
+    <Content Include="Content\images\Admin\ico-hourglass.png" />
+    <Content Include="Content\images\Admin\ico-logout.png" />
+    <Content Include="Content\images\Admin\ico-newslist-black.png" />
+    <Content Include="Content\images\Admin\ico-newslist.png" />
+    <Content Include="Content\images\Admin\ico-contact.png" />
+    <Content Include="Content\images\Admin\ico-partnership-black.png" />
+    <Content Include="Content\images\Admin\ico-partnership.png" />
+    <Content Include="Content\images\Admin\ico-user.png" />
+    <Content Include="Content\images\Admin\ico-about.png" />
     <Content Include="Content\images\Public\background.png" />
     <Content Include="Content\images\Public\bgcontent.png" />
     <Content Include="Content\images\Public\footer.png" />
     <Content Include="Content\images\Public\footer0.2.png" />
     <Content Include="Content\images\Public\logo.png" />
     <Content Include="Content\images\Public\menubar.png" />
+    <Content Include="Content\Scripts\Admin\core.js" />
     <Content Include="Content\themes\Admin\admin.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -749,8 +766,8 @@
     <Content Include="Views\Admin\ChangePassword.cshtml" />
     <Content Include="Views\UserMailer\_Layout.cshtml" />
     <Content Include="Views\UserMailer\Contact.cshtml" />
-    <Content Include="Views\Shared\PartialViews\Admin\Messages.cshtml" />
-    <Content Include="Views\Shared\PartialViews\Admin\NavigationBar.cshtml" />
+    <Content Include="Views\Shared\PartialViews\Admin\DefaultMessages.cshtml" />
+    <Content Include="Views\Shared\PartialViews\Admin\Header.cshtml" />
     <Content Include="Views\Shared\PartialViews\Admin\Menu.cshtml" />
     <Content Include="Views\Admin\NewsList.cshtml" />
     <Content Include="Views\Admin\AddNews.cshtml" />
@@ -766,6 +783,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Partnership.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\PartialViews\Admin\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

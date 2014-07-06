@@ -1,20 +1,48 @@
-﻿<p>
-    @Html.ActionLink("Do strony publicznej", "Index", "Home")
-</p>
-<p>
-    @Html.ActionLink("Aktualności", "NewsList", "Admin")
-</p>
-<p>
-    Partnerzy OC
-    @*@Html.ActionLink("Partnerzy OC", "Partnership", "Admin")*@
-</p>
-<p>
-    @Html.ActionLink("O mnie", "About", "Admin")
-</p>
-<p>
-    @Html.ActionLink("Kontakt", "Contact", "Admin")
-</p>
-<p>
-    @Html.ActionLink("Współpraca", "Partnership", "Admin")
-</p>
+﻿<div class="menu">
+    <a href="/" class="home"><div class="icon"></div>powrót do strony<span>powrót do głównej strony serwisu</span><div class="shadow"></div></a>
+    <a href="/admin" id="MenuIndex" class="cms"><div class="icon"></div>główna strona CMS<span>główna strona panelu administratora</span><div class="shadow"></div></a>
 
+    <div class="category">
+        ADMIN
+    </div>
+
+    <a href="@Url.Action("NewsList","Admin")" id="MenuNewsList" class="newslist">
+        <div class="icon"></div>
+        Aktualności
+        <span>twoje aktualności</span>
+        <div class="shadow"></div>
+    </a>
+
+    @*<a href="@Url.Action("Partnership", "Admin")" id="MenuPartners" class="partnership">
+            <div class="icon"></div>
+            Partnerzy OC
+            <span>lista partnerów</span>
+            <div class="shadow"></div>
+        </a>*@
+
+    <a href="@Url.Action("About","Admin")" id="MenuAbout" class="about">
+        <div class="icon"></div>
+        O mnie
+        <span>napisz coś o sobie</span>
+        <div class="shadow"></div>
+    </a>
+
+    <a href="@Url.Action("Contact","Admin")" id="MenuContact" class="contact">
+        <div class="icon"></div>
+        Kontakt
+        <span>dane kontaktowe</span>
+        <div class="shadow"></div>
+    </a>
+
+    <a href="@Url.Action("Partnership","Admin")" id="MenuPartnership" class="partnership">
+        <div class="icon"></div>
+        Współpraca
+        <span>czego wymagasz?</span>
+        <div class="shadow"></div>
+    </a>
+
+
+
+    <div class="category">INNE</div>
+    <a href="/home/logout" class="logout"><div class="icon"></div>wyloguj się<div class="shadow"></div></a>
+</div>

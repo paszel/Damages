@@ -24,7 +24,8 @@ namespace CmsMaster
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/Admin/js").Include(
-                "~/Scripts/DataTables-1.9.4/media/js/jquery.dataTables.js"));
+                "~/Scripts/DataTables-1.9.4/media/js/jquery.dataTables.js",
+                "~/Content/Scripts/Admin/core.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 

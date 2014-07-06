@@ -1,12 +1,19 @@
-﻿@section BreadCrumbs{
-    > Lista aktualności
+﻿@section PageTitle{
+    Lista aktualności
+    @Html.ActionLink("Dodaj nowe", "AddNews", "Admin", new { @class = "action add" })
+}
 
+@section Breadcrumbs{
+    > lista aktualności
 }
 
 <div>
-    <div style="margin: 1em">
-        @Html.ActionLink("Dodaj nowe", "AddNews", "Admin")
+    <div class="formHeader">
+        <h2>
+            Lista aktualności
+        </h2>
     </div>
+    <br/>
     <table id="dataTable">
         <thead>
             <tr>
@@ -20,58 +27,63 @@
     </table>
 </div>
 
-<script type="text/javascript">
-    $(function () {
+@section Scripts{
 
-        $('div').on('click', '.deleteAction', function (e) {
-            e.stopPropagation();
-            if (!confirm("Czy jesteś pewien, że chcesz usunąć wybrany rekord?\r\nOperacji nie można cofnąć.")) {
-                e.preventDefault();
-            }
-        });
+    <script type="text/javascript">
+        $(function () {
 
-        var oTable = $("#dataTable").dataTable(
-               {
-                   "bProcessing": true,
-                   "bServerSide": true, // --> jesli chcemy obsluge wszelkich eventow nawet sort po stronie servera
-                   "bFilter": false,
-                   "sAjaxSource": "/Admin/GetNewsList",
-                   "fnServerData": function (url, data, callback) {
-                       $.ajax({
-                           "url": url,
-                           "data": data,
-                           "success": callback,
-                           "contentType": "application/x-www-form-urlencoded; charset=uft-8",
-                           "dataType": "json",
-                           "type": "POST",
-                           "cache": false,
-                           "error": function () {
-                               alert("Error: dane nie mogły zostać pobrane!");
+            activateMenuItem('NewsList');
+
+            $('div').on('click', '.deleteAction', function (e) {
+                e.stopPropagation();
+                if (!confirm("Czy jesteś pewien, że chcesz usunąć wybrany rekord?\r\nOperacji nie można cofnąć.")) {
+                    e.preventDefault();
+                }
+            });
+
+            var oTable = $("#dataTable").dataTable(
+                   {
+                       "bProcessing": true,
+                       "bServerSide": true, // --> jesli chcemy obsluge wszelkich eventow nawet sort po stronie servera
+                       "bFilter": false,
+                       "sAjaxSource": "/Admin/GetNewsList",
+                       "fnServerData": function (url, data, callback) {
+                           $.ajax({
+                               "url": url,
+                               "data": data,
+                               "success": callback,
+                               "contentType": "application/x-www-form-urlencoded; charset=uft-8",
+                               "dataType": "json",
+                               "type": "POST",
+                               "cache": false,
+                               "error": function () {
+                                   alert("Error: dane nie mogły zostać pobrane!");
+                               }
+                           });
+                       },
+                       "iStart": $(this)._iDisplayStart,
+                       "aoColumns": [
+                           { "bSortable": false, "sWidth": '40%' },
+                           { "bSortable": false, "sWidth": '40%' },
+                           { "bSortable": false, "sWidth": '10%' }
+
+                       ],
+                       "oLanguage": {
+                           "sProcessing": "Przetwarznie danych...",
+                           "sLengthMenu": "_MENU_ rekordów na stronę",
+                           "sZeroRecords": "Nie znaleziono żadnych rekordów.",
+                           "sInfo": "Wyświetlono od _START_ do _END_ z _TOTAL_ rekordów",
+                           "sInfoEmpty": "Wyświetlono 0 do 0 z 0 rekordów",
+                           "sInfoFiltered": "(przefiltrowano z _MAX_ wszystkich rekordów)",
+                           "sSearch": "Szukaj:",
+                           "oPaginate": {
+                               "sFirst": "Pierwsza",
+                               "sPrevious": "Poprzednia",
+                               "sNext": "Następna",
+                               "sLast": "Ostatnia"
                            }
-                       });
-                   },
-                   "iStart": $(this)._iDisplayStart,
-                   "aoColumns": [
-                       { "bSortable": false, "sWidth": '40%' },
-                       { "bSortable": false, "sWidth": '40%' },
-                       { "bSortable": false, "sWidth": '10%' }
-
-                   ],
-                   "oLanguage": {
-                       "sProcessing": "Przetwarznie danych...",
-                       "sLengthMenu": "_MENU_ rekordów na stronę",
-                       "sZeroRecords": "Nie znaleziono żadnych rekordów.",
-                       "sInfo": "Wyświetlono od _START_ do _END_ z _TOTAL_ rekordów",
-                       "sInfoEmpty": "Wyświetlono 0 do 0 z 0 rekordów",
-                       "sInfoFiltered": "(przefiltrowano z _MAX_ wszystkich rekordów)",
-                       "sSearch": "Szukaj:",
-                       "oPaginate": {
-                           "sFirst": "Pierwsza",
-                           "sPrevious": "Poprzednia",
-                           "sNext": "Następna",
-                           "sLast": "Ostatnia"
                        }
-                   }
-               })
-    })
-</script>
+                   })
+        })
+    </script>
+}

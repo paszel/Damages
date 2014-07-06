@@ -1,20 +1,42 @@
 ﻿@model CmsMaster.Models.ContentModel
 
+@section PageTitle{
+    Kontakt
+}
+
 @section Breadcrumbs{
     > kontakt
 }
 
-@using (Html.BeginForm("Contact", "Admin", FormMethod.Post))
-{
-    @Html.ValidationSummary(true)
-    @Html.AntiForgeryToken()
-    
-    @Html.LabelFor(m => m.ContentDescription)
-    <br/>
-    @Html.EditorFor(m => Model.ContentDescription)
-    <br/>
-    @Html.ValidationMessageFor(m => m.ContentDescription)
-    <div>
-        <input type="submit" value="Zapisz"/> &nbsp; @Html.ActionLink("Anuluj", "Index", "Admin")
+<div>
+    <div class="formHeader">
+        <h2>
+            Kontakt
+        </h2>
     </div>
+    @using (Html.BeginForm("Contact", "Admin", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        @Html.AntiForgeryToken()
+
+        <div class="formRow">
+            @Html.LabelFor(m => m.ContentDescription, new { @class = "header" })
+            <div class="content">
+                @Html.EditorFor(m => Model.ContentDescription)
+                @Html.ValidationMessageFor(m => m.ContentDescription)
+            </div>
+        </div>
+        <div class="formRow">
+            <div class="center">
+                <br />
+                <input type="submit" value="Zapisz" class="submit"/> &nbsp; @Html.ActionLink("Anuluj", "Index", "Admin")
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        activateMenuItem('Contact');
+    </script>
 }

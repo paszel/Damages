@@ -1,29 +1,47 @@
 ﻿@model CmsMaster.Models.UserEmail
 
+@section PageTitle{
+    Zmiana maila
+}
+
 @section Breadcrumbs{
     > zmiana maila
 }
 
-@using (Html.BeginForm("ChangeEmail", "Admin", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-    
-    @Html.LabelFor(m=>m.Email)
-    <br/>
-    @Html.EditorFor(m=>m.Email)
-    <br/>
-    @Html.ValidationMessageFor(m=>m.Email)
-    <br/>
-    
-    @Html.LabelFor(m=>m.Password)
-    <br/>
-    @Html.PasswordFor(m=>m.Password)
-    <br/>
-    @Html.ValidationMessageFor(m=>m.Password)
-    <br/>
-    
-    <input type="submit" value="Zapisz"/>
-    <a href="/admin/index">Anuluj</a>
-    
-}
+<div>
+    <div class="formHeader">
+        <h2>
+            Zmian maila
+        </h2>
+    </div>
+    @using (Html.BeginForm("ChangeEmail", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="formRow">
+            @Html.LabelFor(m => m.Email, new { @class = "header" })
+            <div class="content">
+                @Html.TextBoxFor(m => m.Email)
+                &nbsp;
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>
+        <div class="formRow">
+            @Html.LabelFor(m => m.Password, new { @class = "header" })
+            <div class="content">
+                @Html.EditorFor(m => m.Password)
+                &nbsp;
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+        </div>
+        <div class="formRow">
+            <div class="center">
+                <input type="submit" value="Zapisz" class="submit" />
+                &nbsp;
+                @Html.ActionLink("Anuluj", "Index", "Admin")
+            </div>
+        </div>
+    }
+</div>
+

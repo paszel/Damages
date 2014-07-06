@@ -1,45 +1,62 @@
 ﻿@model CmsMaster.Models.AboutModel
 
+@section PageTitle{
+    O mnie
+}
+
 @section Breadcrumbs{
     > o mnie
 }
 
-@using (Html.BeginForm("About", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(true)
-
-    @Html.LabelFor(m => m.Avatar)
-    <br />
-
-    if (string.IsNullOrEmpty(Model.Avatar))
-    {
-        <span>Nie wgrano jeszcze żadnego.</span>
-    }
-    else
-    {
-        <img src="@Url.Action("GetAvatar", "Admin", new { id="FormContainer", path = Model.Avatar })" alt="avatar" />
-    }
-
-    <br />
-
-    <input id="avatar" name="avatar" type="file" />
-    <br/>
-    <span class="vtip" title="Dopuszczalne typy plików: JPG, PNG."><a class="forUiHintIco"></a></span>
-
-    <br />
-    @Html.LabelFor(m => m.Content)
-    <br />
-    @Html.EditorFor(m => Model.Content)
-    <br />
-    @Html.ValidationMessageFor(m => m.Content)
-    <div>
-        <input id="formSubmit" type="submit" value="Zapisz" /> &nbsp; @Html.ActionLink("Anuluj", "Index", "Admin")
+<div>
+    <div class="formHeader">
+        <h2>
+            O mnie
+        </h2>
     </div>
-}
+    @using (Html.BeginForm("About", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary(true)
+
+        <div class="formRow">
+            @Html.LabelFor(m => m.Avatar, new { @class = "header" })
+            <div class="content">
+                @if (string.IsNullOrEmpty(Model.Avatar))
+                {
+                    <span>Nie wgrano jeszcze żadnego.</span>
+                }
+                else
+                {
+                    <img src="@Url.Action("GetAvatar", "Admin", new { id="FormContainer", path = Model.Avatar })" alt="avatar" />
+                }
+                <br/>
+                <input id="avatar" name="avatar" type="file" />
+                <span class="vtip" title="Dopuszczalne typy plików: JPG, PNG."><a class="forUiHintIco"></a></span>
+            </div>
+        </div>
+        <div class="formRow">
+            @Html.LabelFor(m => m.Content, new { @class = "header" })
+            <div class="content">
+                @Html.EditorFor(m => Model.Content)
+                <br/>
+                @Html.ValidationMessageFor(m => m.Content)
+            </div>
+        </div>
+        <div class="formRow">
+            <div class="center">
+                <br />
+                <input id="formSubmit" type="submit" value="Zapisz" class="submit"/> &nbsp; @Html.ActionLink("Anuluj", "Index", "Admin")
+            </div>
+        </div>
+    }
+</div>
 
 @section Scripts{
 
     <script type="text/javascript">
+
+        activateMenuItem('About');
+
         $("#fileRequired").hide();
 
         $("#formSubmit").click(function () {

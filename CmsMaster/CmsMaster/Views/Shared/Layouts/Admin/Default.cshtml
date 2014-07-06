@@ -10,29 +10,32 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/Admin/js")
+
+
 </head>
 <body>
-    <div class="navBar">
-        <div id="titleDiv">
-            <h1>PRZEMYSŁAWPIECHOTA.PL</h1>
-        </div>
-        <div id="adminActions">
-            @Html.Partial("PartialViews/Admin/NavigationBar")
-        </div>
-    </div>
-    <br/>
-    <div id="content">
-        <div class="menu">
+    <div class="page">
+        @Html.Partial("PartialViews/Admin/Header")
+        <div class="c1">
             @Html.Partial("PartialViews/Admin/Menu")
         </div>
-        <div class="content">
-            <div id="breadCrumbs">
-                <a href="/admin">strona główna</a> @RenderSection("BreadCrumbs", false)
+        <div class="c2">
+            <div class="pageInfo">
+                <div class="pageTitle">
+                    @RenderSection("PageTitle", false)
+                </div>
+                <div class="breadcrumbs">
+                    <a href="/admin">strona główna cms</a> @RenderSection("Breadcrumbs", false)
+                </div>
             </div>
-            @Html.Partial("PartialViews/Admin/Messages")
+            @Html.Partial("PartialViews/Admin/DefaultMessages")
+            @RenderSection("CustomMessages", false)
             @RenderBody()
         </div>
+        <div class="clear"></div>
+        @Html.Partial("PartialViews/Admin/Footer")
     </div>
-    @RenderSection("scripts", required: false)
+    @RenderSection("Scripts", false)
+
 </body>
 </html>
