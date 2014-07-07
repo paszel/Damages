@@ -14,12 +14,16 @@
             O mnie
         </h2>
     </div>
-    @using (Html.BeginForm("About", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("About", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @id = "FormContainer" }))
     {
         @Html.ValidationSummary(true)
 
         <div class="formRow">
             @Html.LabelFor(m => m.Avatar, new { @class = "header" })
+            <span class="imageInfo">
+                <span class="triangle"></span>
+                Preferowana szerokość: 270px.
+            </span>
             <div class="content">
                 @if (string.IsNullOrEmpty(Model.Avatar))
                 {
@@ -27,7 +31,7 @@
                 }
                 else
                 {
-                    <img src="@Url.Action("GetAvatar", "Admin", new { id="FormContainer", path = Model.Avatar })" alt="avatar" />
+                    <img src="@Url.Action("GetAvatar", "Admin", new { path = Model.Avatar })" alt="avatar" width="270" />
                 }
                 <br/>
                 <input id="avatar" name="avatar" type="file" />
@@ -62,15 +66,20 @@
         $("#formSubmit").click(function () {
             var submit = true;
 
-            submit = TestFileType($("#avatar").val(), ".jpg .png");
+            if ($('#avatar').val() != "") {
 
-            if (submit) {
-                $("#FormContainer").submit();
+                submit = TestFileType($("#avatar").val(), ".jpg .png");
+
+                if (submit) {
+                    $("#FormContainer").submit();
+                }
+                else {
+                    return false;
+                }
             }
             else {
-                return false;
+                $("#FormContainer").submit();
             }
-
         });
 
 
