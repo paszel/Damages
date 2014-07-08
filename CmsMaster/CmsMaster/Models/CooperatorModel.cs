@@ -19,6 +19,7 @@ namespace CmsMaster.Models
         [StringLength(100, ErrorMessage = "Maksymalna długość pola to 100 znaków")]
         public string Description { get; set; }
         
+        [Display(Name="Czy baner?")]
         public bool IsBanner { get; set; }
 
         [Required(ErrorMessage = "Pole wymagane")]
@@ -28,11 +29,9 @@ namespace CmsMaster.Models
         [Display(Name = "Adres")]
         [StringLength(100, ErrorMessage = "Maksymalna długość pola to 100 znaków")]
         public string Address { get; set; }
-
-        [StringLength(15, ErrorMessage = "Maksymalna długość pola to 100 znaków")]
-        [Display(Name = "Numer tel.")]
-        public string PhoneNumber { get; set; }
         public string FileName { get; set; }
+
+        [Display(Name="Obrazek")]
         public string FilePath { get; set; }
     }
 }

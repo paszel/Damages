@@ -23,13 +23,6 @@ namespace CmsMaster.App_Start
                 return ((Container)HttpContext.Current.Application["Container"]).GetInstance<INewsLogic>();
             }
         }
-        public static IPartnerLogic PartnerLogic
-        {
-            get
-            {
-                return ((Container)HttpContext.Current.Application["Container"]).GetInstance<IPartnerLogic>();
-            }
-        }
         public static ICooperatorLogic CooperatorLogic
         {
             get

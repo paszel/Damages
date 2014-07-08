@@ -163,13 +163,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.Cooperator.cs" />
     <Compile Include="Controllers\AdminControllerPartnership.cs" />
     <Compile Include="Controllers\AdminController.Content.cs" />
     <Compile Include="Controllers\AdminController.About.cs" />
     <Compile Include="Controllers\AdminController.News.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controllers\AdminController.Partners.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.Authentication.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -188,9 +188,9 @@
     <Compile Include="ILogic\IContentLogic.cs" />
     <Compile Include="ILogic\ICooperatorLogic.cs" />
     <Compile Include="ILogic\INewsLogic.cs" />
-    <Compile Include="ILogic\IPartnerLogic.cs" />
     <Compile Include="ILogic\IUserLogic.cs" />
     <Compile Include="Logic\ContentLogic.cs" />
+    <Compile Include="Logic\CooperatorLogic.cs" />
     <Compile Include="Logic\NewsLogic.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -228,7 +228,9 @@
     <Compile Include="Models\News.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\NewsModel.cs" />
+    <Compile Include="Models\NewsModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserEmail.cs" />
     <Compile Include="Models\UserPassword.cs" />
@@ -325,6 +327,8 @@
     <Content Include="Content\images\Admin\ico-add.png" />
     <Content Include="Content\images\Admin\ico-cms.png" />
     <Content Include="Content\images\Admin\ico-contact-black.png" />
+    <Content Include="Content\images\Admin\ico-cooperators-black.png" />
+    <Content Include="Content\images\Admin\ico-cooperators.png" />
     <Content Include="Content\images\Admin\ico-home.png" />
     <Content Include="Content\images\Admin\ico-hourglass.png" />
     <Content Include="Content\images\Admin\ico-logout.png" />
@@ -784,6 +788,9 @@
     <Content Include="Views\Home\Partnership.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Shared\PartialViews\Admin\Footer.cshtml" />
+    <Content Include="Views\Admin\CooperatorsList.cshtml" />
+    <Content Include="Views\Admin\AddCooperator.cshtml" />
+    <Content Include="Views\Admin\UpdateCooperator.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -794,7 +801,6 @@
   <ItemGroup>
     <Folder Include="AppData\Avatar\" />
     <Folder Include="AppData\Cooperators\" />
-    <Folder Include="AppData\Partners\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

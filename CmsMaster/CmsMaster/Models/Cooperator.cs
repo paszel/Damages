@@ -21,7 +21,6 @@ namespace CmsMaster.Models
         public bool IsBanner { get; set; }
         public string UrlAddress { get; set; }
         public string Address { get; set; }
-        public string PhoneNumber { get; set; }
         public string FileName { get; set; }
         public string FilePath { get; set; }
     }

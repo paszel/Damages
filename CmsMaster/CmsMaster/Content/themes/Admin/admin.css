@@ -354,6 +354,10 @@ a.download
 		background: url('/Content/Images/Admin/ico-partnership.png') no-repeat;
 	}
 
+    .menu a.cooperator div.icon{
+		background: url('/Content/Images/Admin/ico-cooperators.png') no-repeat;
+	}
+
 .menu a.active
 {
 	background-color: #fff;
@@ -600,7 +604,7 @@ a.back:hover {
 	/*display: none;*/
 	height: 25px;
 	line-height: 25px;
-    padding-top: 10px;
+	padding-top: 10px;
 }
 
 .message .ok {
@@ -1185,18 +1189,18 @@ div .content .contentLabel{
 }
 
 span.imageInfo {
-    position: absolute;
-    left: 0px;
-    width: 100px;
-    top: 40px;
-    text-align: center;
-    background-color: #C5CFC9;
+	position: absolute;
+	left: 0px;
+	width: 100px;
+	top: 40px;
+	text-align: center;
+	background-color: #C5CFC9;
 }
 
-    span.imageInfo span.triangle {
-        bottom: 40px;
-        position: absolute;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 15px solid #C5CFC9;
-    }
+	span.imageInfo span.triangle {
+		bottom: 40px;
+		position: absolute;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-bottom: 15px solid #C5CFC9;
+	}

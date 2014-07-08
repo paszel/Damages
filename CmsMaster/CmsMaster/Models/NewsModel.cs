@@ -20,5 +20,9 @@ namespace CmsMaster.Models
         [Required(ErrorMessage="Pole wymagane")]
         [UIHint("tinymce_full_compressed"), AllowHtml]
         public string Content { get; set; }
+
+        [Display(Name="Data utworzenia")]
+        public DateTime Created { get; set; }
+
     }
 }

@@ -12,7 +12,7 @@ namespace CmsMaster.ILogic
     {
         ListPage<News, PagingArgs> GetNews(PagingArgs pagingArgs);
         NewsModel GetNews(int id);
-        News GetPublicNews(int id);
+        NewsModel GetPublicNews(int id);
         void AddNews(NewsModel news);
         void DeleteNews(int newsId);
         void UpdateNews(NewsModel news);

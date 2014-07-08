@@ -1,0 +1,121 @@
+﻿@model CmsMaster.Models.CooperatorModel
+
+@section PageTitle{
+    Nowy partner
+}
+
+@section Breadcrumbs{
+    > @Html.ActionLink("Lista partnerów", "CooperatorsList", "Admin") > nowy partner
+}
+
+<div>
+    <div class="formHeader">
+        <h2>nowy partner</h2>
+    </div>
+        @using (Html.BeginForm("AddCooperator", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", @id= "FormContainer" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="formRow">
+                @Html.LabelFor(m => m.Title, new { @class = "header" })
+                <div class="content">
+                    @Html.EditorFor(m => Model.Title)
+                    &nbsp;
+                    @Html.ValidationMessageFor(m => m.Title)
+                </div>
+            </div>
+            <div class="formRow">
+                @Html.LabelFor(m => m.Description, new { @class = "header" })
+                <div class="content">
+                    @Html.EditorFor(m => Model.Description)
+                    <br/>
+                    @Html.ValidationMessageFor(m => m.Description)
+                </div>
+            </div>
+              <div class="formRow">
+                @Html.LabelFor(m => m.IsBanner, new { @class = "header" })
+                <div class="content">
+                    @Html.EditorFor(m => Model.IsBanner)
+                    <br/>
+                    @Html.ValidationMessageFor(m => m.IsBanner)
+                </div>
+            </div>
+              <div class="formRow">
+                @Html.LabelFor(m => m.UrlAddress, new { @class = "header" })
+                <div class="content">
+                    @Html.EditorFor(m => Model.UrlAddress)
+                    <br/>
+                    @Html.ValidationMessageFor(m => m.UrlAddress)
+                </div>
+            </div>
+            <div class="formRow" style="min-height: 100px">
+            @Html.LabelFor(m => m.FilePath, new { @class = "header" })
+            <span class="imageInfo">
+                <span class="triangle"></span>
+                Preferowana szerokość: 150px.
+            </span>
+            <div class="content">
+                @if (string.IsNullOrEmpty(Model.FilePath))
+                {
+                    <span>Nie wgrano jeszcze żadnego.</span>
+                }
+                else
+                {
+                    <img src="@Url.Action("GetImage", "Admin", new { path = Model.FilePath })" alt="obrazek" width="150" />
+                }
+                <br/>
+                <input id="image" name="image" type="file" />
+                <span class="vtip" title="Dopuszczalne typy plików: JPG, PNG."><a class="forUiHintIco"></a></span>
+            </div>
+        </div>
+           <div class="formRow">
+               <div class="center">
+                   <br/>
+                   <input type="submit" value="Zapisz" class="submit"/>&nbsp;@Html.ActionLink("Powrót", "CooperatorsList", "Admin")
+               </div>
+           </div>
+        }
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        activateMenuItem('Cooperators');
+
+        $("#fileRequired").hide();
+
+        $("#formSubmit").click(function () {
+            var submit = true;
+
+            if ($('#image').val() != "") {
+
+                submit = TestFileType($("#image").val(), ".jpg .png");
+
+                if (submit) {
+                    $("#FormContainer").submit();
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                $("#FormContainer").submit();
+            }
+        });
+
+
+        function TestFileType(fileName, fileTypes) {
+            if (!fileName) return false;
+
+            dots = fileName.split(".")
+            //get the part AFTER the LAST period.
+            fileType = "." + dots[dots.length - 1];
+
+            var result = (fileTypes.indexOf(fileType.toLowerCase()) != -1);
+
+            if (!result) {
+                alert("Niepoprawny format pliku. Plik powinnien być w formacie: \n\n" + fileTypes + "\n\nWybierz inny plik.");
+            }
+            return result;
+        }
+    </script>
+}

@@ -12,15 +12,21 @@ namespace CmsMaster.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
     
     public partial class News
     {
         public int Id { get; set; }
-        [Display(Name="Tytu³")]
+
+        [Display(Name = "Tytu³")]
+        [StringLength(100, ErrorMessage = "Maksymalna d³ugoœæ pola to 100 znaków")]
         public string Title { get; set; }
+
         [Display(Name = "Zawartoœæ")]
+        [UIHint("tinymce_full_compressed"), AllowHtml]
         public string Content { get; set; }
-        [Display(Name = "Utworzono")]
+
+        [Display(Name = "Data utworzenia")]
         public System.DateTime Created { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace CmsMaster.Controllers
 
                 if (avatar != null)
                 {
-                    AppLogic.UserLogic.SaveAvatarPath(SaveImagePath(avatar));
+                    AppLogic.UserLogic.SaveAvatarPath(SaveImagePath("Avatar", "avatarImage", avatar));
                 }
 
                 return RedirectToAction("Index", new { updated = true });
@@ -48,18 +48,20 @@ namespace CmsMaster.Controllers
             return View(model);
         }
 
-        private string SaveImagePath(HttpPostedFileBase image)
+        private string SaveImagePath(string fileDirectory, string fileName, HttpPostedFileBase image)
         {
             if (image.ContentLength > 0)
             {
-                var resourceDir = Path.Combine(System.Web.HttpContext.Current.Server.MapPath("~/AppData/Avatar/"));
+                var resourceDir = Path.Combine(
+                    System.Web.HttpContext.Current.Server.MapPath(string.Format("~/AppData/{0}/",fileDirectory)));
+                   // "~/AppData/Avatar/"));
 
                 DirectoryHelper.CreateDirectoryNested(resourceDir);
 
                 var fileExtension = image.FileName.Split('.')[1];
-                var fileName = string.Format("adminAvatar.{0}", fileExtension.ToLower());
+                var newFileName = string.Format("{0}.{1}", fileName.ToLower(), fileExtension.ToLower());
 
-                var path = string.Format("/AppData/Avatar/{0}", fileName);
+                var path = string.Format("/AppData/{0}/{1}", fileDirectory, newFileName);
 
                 var imgWidth = 960;
                 var imgQuality = 95L;
@@ -79,7 +81,7 @@ namespace CmsMaster.Controllers
             return AppLogic.UserLogic.GetAdminAvatarPath();
         }
 
-        public ActionResult GetAvatar(string path)
+        public ActionResult GetImage(string path)
         {
             return File(System.Web.HttpContext.Current.Server.MapPath(path), "image/jpeg");
         }

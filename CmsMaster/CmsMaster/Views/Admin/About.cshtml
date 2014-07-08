@@ -31,7 +31,7 @@
                 }
                 else
                 {
-                    <img src="@Url.Action("GetAvatar", "Admin", new { path = Model.Avatar })" alt="avatar" width="270" />
+                    <img src="@Url.Action("GetImage", "Admin", new { path = Model.Avatar })" alt="avatar" width="270" />
                 }
                 <br/>
                 <input id="avatar" name="avatar" type="file" />
@@ -96,8 +96,6 @@
                 alert("Niepoprawny format pliku. Plik powinnien być w formacie: \n\n" + fileTypes + "\n\nWybierz inny plik.");
             }
             return result;
-
-
         }
     </script>
 }
