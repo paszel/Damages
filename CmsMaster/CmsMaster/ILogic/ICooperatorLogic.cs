@@ -16,5 +16,6 @@ namespace CmsMaster.ILogic
         void DeleteCooperator(int id);
         void UpdateCooperator(CooperatorModel model);
         void SaveCooperatorImage(int id, string path, string fileName);
+        List<Cooperator> GetRandomFourCooperators();
     }
 }

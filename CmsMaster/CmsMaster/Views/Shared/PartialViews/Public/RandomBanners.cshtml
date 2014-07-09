@@ -1,0 +1,9 @@
+﻿@model List<CmsMaster.Models.Cooperator>
+
+@foreach (var item in Model)
+{
+    <span>
+        <a href="@item.UrlAddress">
+            <img src="@Url.Action("GetImage", "Home", new { path = item.FilePath }) " alt="baner" width="100" height="100"></a>
+    </span>
+}

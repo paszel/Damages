@@ -1198,7 +1198,7 @@ span.imageInfo {
 }
 
 	span.imageInfo span.triangle {
-		bottom: 40px;
+		bottom: 90%;
 		position: absolute;
 		border-left: 10px solid transparent;
 		border-right: 10px solid transparent;

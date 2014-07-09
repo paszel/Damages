@@ -72,6 +72,7 @@ div.footer {
 
 div.footer div{
     padding: 0px 25px;
+    float:left;
     width:60%;
     margin-left: 20%;
     margin-right: 15%;
@@ -80,6 +81,12 @@ div.footer div{
         color: #ddd;
         text-decoration: none;
         font-style: italic;
+    }
+
+    div.footer span {
+        width: 100px;
+        float: left;
+        padding: 0px 10px;
     }
 
 div.imgContent{

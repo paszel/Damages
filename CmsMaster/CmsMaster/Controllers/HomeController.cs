@@ -34,7 +34,7 @@ namespace CmsMaster.Controllers
             
             return View(news);
         }
-        public ActionResult GetAvatar(string path)
+        public ActionResult GetImage(string path)
         {
             return File(System.Web.HttpContext.Current.Server.MapPath(path), "image/jpeg");
         }
@@ -51,6 +51,12 @@ namespace CmsMaster.Controllers
         public ActionResult Partnership()
         {
             return View(AppLogic.ContentLogic.GetContent(ContentType.Partnership));
+        }
+
+        public PartialViewResult GetRandomBanners()
+        {
+            var list = AppLogic.CooperatorLogic.GetRandomFourCooperators();
+            return PartialView("PartialViews/Public/RandomBanners", list);
         }
     }
 }

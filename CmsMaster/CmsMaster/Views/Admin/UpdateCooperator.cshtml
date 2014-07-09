@@ -5,7 +5,7 @@
 }
 
 @section Breadcrumbs{
-    > @Html.ActionLink("Lista partnerów", "CooperatorList", "Admin") > edycja
+    > @Html.ActionLink("Lista partnerów", "CooperatorsList", "Admin") > edycja
 }
 
 <div>
@@ -55,7 +55,7 @@
             @Html.LabelFor(m => m.FilePath, new { @class = "header" })
             <span class="imageInfo">
                 <span class="triangle"></span>
-                Preferowana szerokość: 150px.
+                Preferowane wymiary: <br /> 100px x 100px.
             </span>
             <div class="content">
                 @if (string.IsNullOrEmpty(Model.FilePath))
@@ -64,7 +64,7 @@
                 }
                 else
                 {
-                    <img src="@Url.Action("GetImage", "Admin", new { path = Model.FilePath })" alt="obrazek" width="150" />
+                    <img src="@Url.Action("GetImage", "Admin", new { path = Model.FilePath })" alt="obrazek" width="100" height="100" />
                 }
                 <br/>
                 <input id="image" name="image" type="file" />

@@ -58,7 +58,8 @@ namespace CmsMaster.Logic
                     FilePath = model.FilePath,
                     IsBanner = model.IsBanner,
                     Title = model.Title,
-                    UrlAddress = model.UrlAddress
+                    UrlAddress = model.UrlAddress.StartsWith("http://") ? 
+                        model.UrlAddress : string.Format("http://{0}", model.UrlAddress)
                 };
 
                 db.Cooperators.Add(dbCooperator);
@@ -94,7 +95,8 @@ namespace CmsMaster.Logic
                     //dbCooperator.FilePath = model.FilePath;
                     dbCooperator.IsBanner = model.IsBanner;
                     dbCooperator.Title = model.Title;
-                    dbCooperator.UrlAddress = model.UrlAddress;
+                    dbCooperator.UrlAddress = model.UrlAddress.StartsWith("http://") ?
+                        model.UrlAddress : string.Format("http://{0}", model.UrlAddress);
 
                     db.SaveChanges();
                 }
@@ -115,6 +117,32 @@ namespace CmsMaster.Logic
                     db.SaveChanges();
                 }
 
+            }
+        }
+
+        public List<Cooperator> GetRandomFourCooperators()
+        {
+            using (var db = new CmsDatabaseEntities())
+            {
+                var dbCooperators = db.Cooperators.ToList();
+
+                if (dbCooperators.Count < 5)
+                {
+                    return db.Cooperators.Take(4).ToList();
+                }
+                else 
+                {
+                    Random rand = new Random();
+                    List<Cooperator> result = new List<Cooperator>();
+
+                    while (result.Count < 4)
+                    {
+                        var dbCooperator = dbCooperators[rand.Next(dbCooperators.Count)];
+                        if (!result.Contains(dbCooperator))
+                            result.Add(dbCooperator);
+                    }
+                    return result;
+                }
             }
         }
     }

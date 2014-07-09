@@ -31,9 +31,11 @@
     </div>
     <div class="footer">
         <div>
-            Nam cursus sapien ac eleifend tincidunt. <a href="">Integer rutrum rutrum imperdiet.</a> Integer tincidunt eget nulla ac ultrices. Vestibulum elementum tincidunt nisi, eu cursus justo cursus vitae. Maecenas at volutpat ante. Ut venenatis ullamcorper mi a rhoncus. Duis eget condimentum nisl. Integer ut ligula libero.
+            @Html.Action("GetRandomBanners", "Home")
+            <span style="float:right">
+                texts
+            </span>
         </div>
-        
     </div>
     @RenderSection("scripts", required: false)
 </body>
