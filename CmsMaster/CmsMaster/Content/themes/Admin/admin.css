@@ -1,8 +1,4 @@
-﻿@font-face { font-family: "Segoe UI"; src: local("Segoe UI"), url(/Content/Fonts/segoeui.ttf); }
-@font-face { font-family: "Segoe UI Semibold"; src: local("Segoe UI Semibold"), url(/Content/Fonts/seguisb.ttf); }
-@font-face { font-family: "Segoe UI Light"; src: local("Segoe UI Light"), url(/Content/Fonts/segoeuil.ttf); }
-
-* {
+﻿* {
 	margin: 0px;
 	padding: 0px;
 }

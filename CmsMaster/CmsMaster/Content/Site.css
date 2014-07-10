@@ -1,9 +1,15 @@
 ﻿body {
+    font-family: "Segoe UI",Verdana,Helvetica,Sans-Serif;
     background-image: url(images/Public/background.png);
     margin-left: 0px;
     margin-top: 0px;
     margin-right: 0px;
     margin-bottom: 0px;
+}
+
+input[type="text"], input[type="password"]{
+    width: 200px;
+    padding:5px;
 }
 
 div.logo {
@@ -110,7 +116,7 @@ div.aboutContent{
 
 div.newsContent {
     margin: 0 auto;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px dashed #000;
 }
 
 div#paging{
@@ -122,42 +128,32 @@ span.labelSpan{
     font-weight: 900;
 }
 
-div.Breadcrumbs{
-    margin: 0.5em 0em 1em 0em;
+span.dateLabel{
+    background: url('/Content/images/Public/ico-file.png')left no-repeat;
+    padding-left: 30px;
+    margin: 5px 0px;
 }
 
-/*body {
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+a.more{
+    background: url('/Content/images/Public/ico-arrow.png') left no-repeat;
+    padding-left: 30px;
+    margin: 5px 0px;
 }
 
-header, footer, nav, section {
-    display: block;
+div.breadcrumbs{
+    padding: 0px 15px;
+    background: url('/Content/images/Public/bg-breadcrumbs.png') repeat-y;
+    height:30px;
+    display:flex;
 }
 
-fieldset {
-    border: 1px solid #ddd;
-    padding: 0 1.4em 1.4em 1.4em;
-    margin: 0 0 1.5em 0;
+div#moreBreadcrumbs{
+    line-height:30px;
 }
 
-legend {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-textarea {
-    min-height: 75px;
-}
-
-.editor-label {
-    margin: 1em 0 0 0;
-}
-
-.editor-field {
-    margin: 0.5em 0 0 0;
+div#login {
+    margin: 0 auto;
+    width: 30%;
 }
 
 
@@ -181,4 +177,4 @@ textarea {
 
 .validation-summary-valid {
     display: none;
-}*/
+}

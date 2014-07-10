@@ -85,18 +85,12 @@ namespace CmsMaster.Logic
         }
 
 
-        public NewsModel GetPublicNews(int id)
+        public News GetPublicNews(int id)
         {
             using (var db = new CmsDatabaseEntities())
             {
                 var dbNews = db.News.FirstOrDefault(n => n.Id == id);
-                return new NewsModel()
-                {
-                    Content = dbNews.Content,
-                    Created = dbNews.Created,
-                    Id = dbNews.Id,
-                    Title = dbNews.Title
-                };
+                return dbNews;
             }
         }
     }

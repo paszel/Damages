@@ -340,9 +340,13 @@
     <Content Include="Content\images\Admin\ico-user.png" />
     <Content Include="Content\images\Admin\ico-about.png" />
     <Content Include="Content\images\Public\background.png" />
+    <Content Include="Content\images\Public\bg-breadcrumbs.png" />
     <Content Include="Content\images\Public\bgcontent.png" />
     <Content Include="Content\images\Public\footer.png" />
     <Content Include="Content\images\Public\footer0.2.png" />
+    <Content Include="Content\images\Public\ico-arrow.png" />
+    <Content Include="Content\images\Public\ico-file.png" />
+    <Content Include="Content\images\Public\ico-home.png" />
     <Content Include="Content\images\Public\logo.png" />
     <Content Include="Content\images\Public\menubar.png" />
     <Content Include="Content\Scripts\Admin\core.js" />

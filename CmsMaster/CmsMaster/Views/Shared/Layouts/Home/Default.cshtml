@@ -25,7 +25,10 @@
     </div>
     <div class="content">
         <div class="breadcrumbs">
-            <a href="/">home</a> @RenderSection("BreadCrumbs", false)
+            <a href="/"><img src="~/Content/images/Public/ico-home.png" /></a>
+            <div id="moreBreadcrumbs">
+                @RenderSection("BreadCrumbs", false)
+            </div>
         </div>
         @RenderBody()
     </div>
@@ -38,5 +41,11 @@
         </div>
     </div>
     @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            $('div.footer').tooltip();
+        })
+    </script>
 </body>
+
 </html>

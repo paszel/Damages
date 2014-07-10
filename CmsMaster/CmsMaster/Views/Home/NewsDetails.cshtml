@@ -6,14 +6,17 @@
 
 <div>
     <p>
-        @Model.Created.ToString("dd-MM-yyyy")
+        <span class="labelSpan">@Html.LabelFor(m => Model.Created)</span>
+        <span class="dateLabel">@Model.Created.ToString("dd-MM-yyyy")</span>
     </p>
     <p>
+        <span class="labelSpan">@Html.LabelFor(m => Model.Title)</span>
         @Model.Title
     </p>
+    <br/>
     <p>
         @Html.Raw(Model.Content)
     </p>
 </div>
-
-@Html.ActionLink("Powrót", "Index", "Home")
+<br/>
+@Html.ActionLink("Powrót", "Index", "Home", null, new { @class = "more" })
