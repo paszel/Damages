@@ -47,8 +47,9 @@ namespace CmsMaster
             Logger.Error(string.Format("{0} / {1}", DateTime.Now, Request.Url), exception);
 
             UserMailer mailer = new UserMailer();
-
             mailer.CustomError(exception, Request.Url.ToString()).Send();
+
+            Response.Redirect("/Error/NotFound");
         }
     }
 }

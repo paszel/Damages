@@ -346,6 +346,7 @@
     <Content Include="Content\images\Public\background.png" />
     <Content Include="Content\images\Public\bg-breadcrumbs.png" />
     <Content Include="Content\images\Public\bgcontent.png" />
+    <Content Include="Content\images\Public\error.png" />
     <Content Include="Content\images\Public\footer.png" />
     <Content Include="Content\images\Public\footer0.2.png" />
     <Content Include="Content\images\Public\ico-arrow.png" />
@@ -447,6 +448,7 @@
     <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\media\js\FixedColumns.min.js.gz" />
     <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\js\dataTables.scroller.min.js.gz" />
     <Content Include="Scripts\DataTables-1.9.4\extras\TableTools\media\js\TableTools.min.js.gz" />
+    <Content Include="log4net.config" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\DataTables-1.9.4\docs\media\js\doc.js" />
     <Content Include="Scripts\DataTables-1.9.4\docs\media\js\jquery.js" />
