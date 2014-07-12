@@ -1,4 +1,5 @@
 using Mvc.Mailer;
+using System;
 
 namespace CmsMaster.Mailers
 { 
@@ -9,26 +10,43 @@ namespace CmsMaster.Mailers
 			MasterName="_Layout";
 		}
 
-		private string _toEmail = "jezus805@gmail.com";
-		public string ToEmail { set { _toEmail = value; } }
+		private string _toEmail = "test.pawel.klima@gmail.com";
+		
 
-        private string _password;
-        public string Password { set { _password = value; } }
-
-        private string _name;
-        public string Name { set { _name = value; } }
-
-		public virtual MvcMailMessage Contact()
+		public virtual MvcMailMessage Contact(string name, string password, string reciverEmail)
 		{
-            ViewBag.Name = _name;
-			ViewBag.Password = _password;
+			ViewBag.Name = name;
+			ViewBag.Password = password;
+
+			var reciver = string.IsNullOrEmpty(reciverEmail) ? _toEmail : reciverEmail;
+
 			return Populate(x =>
 			{
 				x.Subject = "Nowe has³o";
 				x.ViewName = "Contact";
-				x.To.Add(_toEmail);
+				x.To.Add(reciver);
 				
 			});
+		}
+
+		public virtual MvcMailMessage CustomError(Exception exception,string requestUrl, string application="CMSMaster")
+		{
+			ViewBag.Date = DateTime.Now;
+			ViewBag.Application = application;
+            ViewBag.RequestUrl = requestUrl;
+			ViewBag.Message = exception.StackTrace;
+
+			return Populate(x =>
+				{
+					x.Subject = string.Format("{0} - B³¹d", application);
+					x.ViewName = "Error";
+					x.To.Add(_toEmail);
+				});
+		}
+
+		public MvcMailMessage Contact()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

@@ -1,0 +1,16 @@
+﻿<div>
+    <span>Błąd 404</span>
+    <br />
+    <span>
+        Strona nie istnieje, za chwilę zostaniesz przeniesiony na stronę startową serwisu
+    </span>
+
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () { window.location = "/"; }, 5000);
+        });
+    </script>
+}

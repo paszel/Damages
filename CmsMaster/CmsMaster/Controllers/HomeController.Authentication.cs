@@ -52,13 +52,12 @@ namespace CmsMaster.Controllers
         {
             UserMailer mailer = new UserMailer();
 
-            mailer.ToEmail = AppLogic.UserLogic.GetAdminEmail().Email;
+            var reciverEmail = AppLogic.UserLogic.GetAdminEmail().Email;
 
             string newPassword = "test123";
             AppLogic.UserLogic.ChangePassword(newPassword);
-            mailer.Password = newPassword;
-            mailer.Name = "Przemek";
-            mailer.Contact().Send();
+
+            mailer.Contact("Przemek", newPassword, reciverEmail).Send();
 
             return RedirectToAction("Index");
 

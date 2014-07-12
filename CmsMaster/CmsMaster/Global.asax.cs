@@ -9,6 +9,10 @@ using System.Web.Routing;
 using SimpleInjector;
 using CmsMaster.ILogic;
 using CmsMaster.Logic;
+using log4net;
+using System.Reflection;
+using log4net.Config;
+using CmsMaster.Mailers;
 
 namespace CmsMaster
 {
@@ -17,6 +21,7 @@ namespace CmsMaster
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private readonly ILog Logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -32,11 +37,18 @@ namespace CmsMaster
             container.Register<IContentLogic, ContentLogic>(Lifestyle.Singleton);
             container.Register<ICooperatorLogic, CooperatorLogic>(Lifestyle.Singleton);
 
-            //container.InterceptWith<InterceptionProcessor>(t =>
-            //    t.Name.EndsWith("Logic")
-            //);
-
             Application["Container"] = container;
+            XmlConfigurator.Configure();
+        }
+
+        protected void Application_Error(object sender, EventArgs e) 
+        {
+            var exception = Server.GetLastError().GetBaseException();
+            Logger.Error(string.Format("{0} / {1}", DateTime.Now, Request.Url), exception);
+
+            UserMailer mailer = new UserMailer();
+
+            mailer.CustomError(exception, Request.Url.ToString()).Send();
         }
     }
 }

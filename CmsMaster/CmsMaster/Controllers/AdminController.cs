@@ -57,7 +57,7 @@ namespace CmsMaster.Controllers
         {
             if(ModelState.IsValid)
             {
-                if (user.OldPassword.Trim() != user.NewPassword.Trim())
+                if (user.OldPassword.ToLower() != user.NewPassword.ToLower())
                 {
                     if (AppLogic.UserLogic.IsAuthenticated("admin", user.OldPassword))
                     {

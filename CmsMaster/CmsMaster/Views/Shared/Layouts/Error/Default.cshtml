@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=iso-8859-2">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="Author" content="DevPaszel" />
+    <meta http-equiv="Generator" content="nope" />
+    <title>Przemysław Piechota</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+<body class="main">
+    <div class="logo">
+        &nbsp;
+    </div>
+    <div class="bar">
+        @Html.Partial("PartialViews/Public/MenuBar")
+    </div>
+    <div class="content">
+        <div class="breadcrumbs">
+            <a href="/"><img src="~/Content/images/Public/ico-home.png" /></a>
+            <div id="moreBreadcrumbs">
+                @RenderSection("BreadCrumbs", false)
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+    <div class="footer">
+        <div>
+            @Html.Action("GetRandomBanners", "Home")
+            <span style="float:right">
+                texts
+            </span>
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
+    <script>
+        $(function () {
+            $('div.footer').tooltip();
+        })
+    </script>
+</body>
+
+</html>
